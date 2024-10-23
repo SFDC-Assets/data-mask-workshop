@@ -1,6 +1,6 @@
-sfdx force:org:create -f config/project-scratch-def.json -d 1 -s
-sfdx force:package:install -w 20 -r -p 04t3k000001yuer
-sfdx shane:user:psl -l User -g User -n datamask_DataMaskUserPsl
-sfdx shane:user:permset:assign -l User -g User -n datamask
-sfdx force:source:push
-sfdx force:org:open -p /lightning/o/Lead/list?filterName=All_Leads
+sf demoutil org create scratch -f config/project-scratch-def.json -d 1 -s
+sf package install -r -p 04t3k000001yuer --wait 20
+sf shane user psl -n datamask_DataMaskUserPsl -g User -l User
+sf org assign permset -n datamask
+sf project deploy start
+sf org open -p /lightning/o/Lead/list?filterName=All_Leads
